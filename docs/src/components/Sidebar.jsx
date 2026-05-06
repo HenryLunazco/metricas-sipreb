@@ -5,6 +5,7 @@ import {
   ShieldAlert,
   BarChart3,
   Users,
+  BookOpen,
   Menu,
   X
 } from 'lucide-react';
@@ -16,6 +17,7 @@ const navItems = [
   { to: '/riesgos', label: 'Riesgos', icon: ShieldAlert },
   { to: '/kpis', label: 'Indicadores KPI', icon: BarChart3 },
   { to: '/usuarios', label: 'Usuarios', icon: Users },
+  { to: '/instrucciones', label: 'Instrucciones', icon: BookOpen },
 ];
 
 export const Sidebar = () => {

@@ -1,24 +1,5 @@
-/**
- * Servicio API para comunicacion con Google Apps Script.
- * El Apps Script actua como puente REST entre el frontend y Google Sheets.
- *
- * Estructura esperada de respuesta (JSON):
- * {
- *   success: boolean,
- *   data: Array<Object> | Object,
- *   message?: string
- * }
- *
- * Para escritura, se envia un objeto JSON con la propiedad 'action' y los datos.
- */
-
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxmUeYh70k2DbMIxO2vtkGTYwN62XMUppdfl6lQm1ENwFZ471LHj0KCRN_-Op0gTyOK/exec';
 
-/**
- * Realiza una peticion GET para obtener datos de una hoja especifica.
- * @param {string} sheetName - Nombre de la hoja (Dashboard, Proyectos, Riesgos, Indicadores KPI, Usuarios)
- * @returns {Promise<Array<Object>>} - Array de registros en formato JSON.
- */
 export const fetchSheetData = async (sheetName) => {
   try {
     const response = await fetch(`${APPS_SCRIPT_URL}?sheet=${encodeURIComponent(sheetName)}`, {
@@ -45,13 +26,6 @@ export const fetchSheetData = async (sheetName) => {
   }
 };
 
-/**
- * Realiza una peticion POST para crear o actualizar un registro.
- * @param {string} sheetName - Nombre de la hoja destino.
- * @param {Object} payload - Datos del registro a enviar.
- * @param {string} [action='create'] - Accion a realizar: 'create' | 'update' | 'delete'.
- * @returns {Promise<Object>} - Respuesta del servidor.
- */
 export const postSheetData = async (sheetName, payload, action = 'create') => {
   try {
     const body = {
