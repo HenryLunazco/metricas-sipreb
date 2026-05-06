@@ -1,0 +1,7 @@
+node_modules/
+build/
+dist/
+.clasp.json
+appsscript.json
+Código.js
+docs/node_modules/
